@@ -8,6 +8,19 @@ Pepper robot emotion recognition and corresponding gesture reaction
 - **Think of the way empathy is translated to gesture**: what is a best answer to the specific emotion. Introduce a set of gestures.
 - **Code the movements**: transfer gestures to the code driven the robot's movements 
 
+# Useful links
+* A similar implementation of one of my friends (it is simple, but we can use it for the start): https://github.com/PeterKillerio/Neural_Networks/tree/master/Tensorflow/Emotion_recognition
+* Here's a video of how it works (the result of the project above):
+https://www.youtube.com/watch?v=PdgOubpjWac&ab_channel=PeterBas%C3%A1r
+* One of many tutorials for face detection and recognition with OpenCV:
+https://www.pyimagesearch.com/2018/09/24/opencv-face-recognition/
+* Dataset that contains black&white photos of facial expressions. Later can be used for training:
+https://www.kaggle.com/c/challenges-in-representation-learning-facial-expression-recognition-challenge/data
+* A tutorial on face detection using OpenCV:
+https://www.youtube.com/watch?v=mPCZLOVTEc4&ab_channel=TechWithTim
+* Emotion recognition overview. Just check it, there are some main points such as what can represent emotions in human behavior (facial expressions, pose, gesture, voice, etc.). There's no need to read it carefully though XD:
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7806093/
+
 # Authors
 **Lev Kisselyov**: https://github.com/RancidSpring
 
