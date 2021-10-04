@@ -20,6 +20,8 @@ https://www.kaggle.com/c/challenges-in-representation-learning-facial-expression
 https://www.youtube.com/watch?v=mPCZLOVTEc4&ab_channel=TechWithTim
 * Emotion recognition overview. Just check it, there are some main points such as what can represent emotions in human behavior (facial expressions, pose, gesture, voice, etc.). There's no need to read it carefully though XD:
 https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7806093/
+* A paper with a similar task, there's a robot, it detects facial expressions and outputs its reaction (don't know if it's useful for us):
+https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8039024
 
 # Authors
 **Lev Kisselyov**: https://github.com/RancidSpring
