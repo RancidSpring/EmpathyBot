@@ -11,4 +11,4 @@ Pepper robot emotion recognition and corresponding gesture reaction
 # Authors
 **Lev Kisselyov**: https://github.com/RancidSpring
 
-**Daria Fedorova**: 
+**Daria Fedorova**: https://github.com/amdorra57
