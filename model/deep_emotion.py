@@ -3,12 +3,12 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 
-class Deep_Emotion(nn.Module):
+class DeepEmotionRecognitionModel(nn.Module):
     def __init__(self):
-        '''
+        """
         Deep_Emotion class contains the network architecture.
-        '''
-        super(Deep_Emotion, self).__init__()
+        """
+        super(DeepEmotionRecognitionModel, self).__init__()
         self.conv1 = nn.Conv2d(1, 10, 3)
         self.conv2 = nn.Conv2d(10, 10, 3)
         self.pool2 = nn.MaxPool2d(2, 2)
@@ -39,18 +39,18 @@ class Deep_Emotion(nn.Module):
         self.fc_loc[2].weight.data.zero_()
         self.fc_loc[2].bias.data.copy_(torch.tensor([1, 0, 0, 0, 1, 0], dtype=torch.float))
 
-    def stn(self, x):  # attention unit
-        xs = self.localization(x)
+    def stn(self, inp):  # attention unit
+        xs = self.localization(inp)
         xs = xs.view(-1, 640)
         theta = self.fc_loc(xs)
         theta = theta.view(-1, 2, 3)
 
-        grid = F.affine_grid(theta, x.size())
-        x = F.grid_sample(x, grid)
-        return x
+        grid = F.affine_grid(theta, inp.size())
+        inp = F.grid_sample(inp, grid)
+        return inp
 
-    def forward(self, input):
-        out = self.stn(input)  # ATTENTION UNIT
+    def forward(self, inp):
+        out = self.stn(inp)  # attention unit
 
         out = F.relu(self.conv1(out))
         out = self.conv2(out)

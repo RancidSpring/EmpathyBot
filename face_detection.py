@@ -5,36 +5,39 @@ import os
 import numpy as np
 import matplotlib.pyplot as plt
 
-# get a photo
-
-
-# apply OpenCV face recognition
-
-
-# function to detect face using OpenCV
 
 def detect_face(img):
-    # convert the test image to gray image as opencv face detector expects gray images
+    """
+    :param img: the image read using the cv2.imread()
+    :return: faces_array, which is a list of all detected faces.
+             Each element of the array is a pair of a face area in gray and colored format
+    """
+    # convert the test image to gray image as OpenCV face detector expects gray images
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    face_cascade = cv2.CascadeClassifier('xml_face_detection/haarcascade_frontalface_default.xml')
 
-    # load OpenCV face detector, I am using LBP which is fast
-    # there is also a more accurate but slow Haar classifier
-    face_cascade = cv2.CascadeClassifier('opencv-files/lbpcascade_frontalface.xml')
-
-    # let's detect multiscale (some images may be closer to camera than others) images
     # result is a list of faces
-    faces = face_cascade.detectMultiScale(gray, scaleFactor=1.2, minNeighbors=5)
+    faces = face_cascade.detectMultiScale(gray, scaleFactor=1.05, minNeighbors=5)
 
-    # if no faces are detected then return original img
-    if len(faces) == 0:
-        return None, None
+    faces_array = []
+    for x, y, w, h in faces:
+        roi_gray = gray[y:y+h, x:x+w]
+        roi_color = picture[y:y+h, x:x+w]
+        faces_array.append((roi_gray, roi_color))
+        # cv2.rectangle(picture, (x, y), (x + w, y + h), (255, 0, 0), 2)
 
-    # under the assumption that there will be only one face,
-    # extract the face area
-    (x, y, w, h) = faces[0]
+    if len(faces_array) == 0:
+        print("No faces detected")
+        return None
 
-    # return only the face part of the image
-    return gray[y:y + w, x:x + h], faces[0]
+    return picture, faces_array
 
-# control the result (ex. check the presence of eyes or mouth)
+
+if __name__ == "__main__":
+    picture = cv2.imread("pictures/338.png")
+    detection_result = detect_face(picture)
+    if detection_result:
+        picture_with_frame, all_faces = detection_result
+        plt.imshow(cv2.cvtColor(all_faces[0][1], cv2.COLOR_BGR2RGB))
+        plt.show()
 
