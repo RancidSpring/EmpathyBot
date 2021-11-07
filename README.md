@@ -8,7 +8,7 @@ The project is divided into two main parts. The first part is to detect a face o
 4) Happiness, 
 5) Sadness,
 6) Surprise, 
-7) Neutral.
+7) Neutral emotional state.
 
 The second part is to produce a reaction corresponding to the recognized emotion. The reaction is generated using the robot's API, naoqi.
 
