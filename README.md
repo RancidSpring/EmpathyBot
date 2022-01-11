@@ -15,10 +15,10 @@ The second part is to produce a reaction corresponding to the recognized emotion
 ## Running the project  
 ### Initialization
 To start the project it is necessary to install dependencies. In addition to standard dependencies of the robot, to run the program there should be following packages installed:
-opencv==3.4.2
-matplotlib==2.2.4
-pytorch==1.3.0
-torchvision==0.4.1
+- opencv==3.4.2
+- matplotlib==2.2.4
+- pytorch==1.3.0
+- torchvision==0.4.1
 It is important to set up the qi library path in environment variables.
 
 ### Execution
