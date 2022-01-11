@@ -19,6 +19,7 @@ To start the project it is necessary to install dependencies. In addition to sta
 - matplotlib==2.2.4
 - pytorch==1.3.0
 - torchvision==0.4.1
+
 It is important to set up the qi library path in environment variables.
 
 ### Execution
