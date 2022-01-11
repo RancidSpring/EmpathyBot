@@ -12,22 +12,9 @@ The project is divided into two main parts. The first part is to detect a face o
 
 The second part is to produce a reaction corresponding to the recognized emotion. The reaction is generated using the robot's API, naoqi.
 
-## Already done:
-- **The architecture**: for the NN and forward function;
-- **The training script**: located in the root folder;
-- **Face detection**: is implemented within the script **face_detection.py**. It uses OpenCV face detection by haarcascade, which is Object Detection Algorithm used to identify faces in an image or a real time video.
-- **Useful helper functions**: under the helpers folder, which allow us to easily download and parse the data.
-
-## Goals for Development
-- **Find and implement suitable emotion recognition model**: use pytorch (do research on the model to use)
-- **Investigate naoqi**: find out the parameters of the photos from the Pepper
-- **Think of the way empathy is translated to gesture**: what is a best answer to the specific emotion. Introduce a set of gestures.
-- **Code the movements**: transfer gestures to the code driven the robot's movements 
+## Running the project  
 
 ## Useful links
-* A similar implementation of one of my friends (it is simple, but we can use it for the start): https://github.com/PeterKillerio/Neural_Networks/tree/master/Tensorflow/Emotion_recognition
-* Here's a video of how it works (the result of the project above):
-https://www.youtube.com/watch?v=PdgOubpjWac&ab_channel=PeterBas%C3%A1r
 * Dataset that contains gray photos of facial expressions, which is used for training:
 https://www.kaggle.com/c/challenges-in-representation-learning-facial-expression-recognition-challenge/data
 * Links to the robot:
