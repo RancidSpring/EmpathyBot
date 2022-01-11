@@ -16,8 +16,10 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 def train(epochs, train_loader, val_loader, criterion, optimizer, device):
     for e in tqdm.trange(epochs):
-        train_loss = validation_loss = train_correct = val_correct = 0
-
+        train_loss = 0
+        validation_loss = 0
+        train_correct = 0
+        val_correct = 0
         # The training stage of the epoch
         net.train()
         for current_idx, (data, labels) in enumerate(train_loader):
@@ -50,8 +52,8 @@ def train(epochs, train_loader, val_loader, criterion, optimizer, device):
               ' \tTraining Accuracy {:.3f}% \tValidation Accuracy {:.3f}%'
               .format(e+1, train_loss, validation_loss, train_acc*100, val_acc*100))
 
-        if (epochs+1) % 10 == 0:
-            torch.save(net.state_dict(), 'deep_emotion-{}-{}-{}-{}.pt'.format(epochs, batch, lr, val_acc))
+        if (e+1) % 10 == 0:
+            torch.save(net.state_dict(), 'model_snapshots/deep_emotion-{}-{}-{}-{}.pt'.format(epochs, batch, lr, val_acc))
             print("Network is saved to a file")
 
 
@@ -80,7 +82,7 @@ if __name__ == '__main__':
         lr = args.learning_rate  # The learning rate: how radically the network should adapt its weights
         batch = args.batch_size  # The size of a batch: number of pictures in one group (batch)
     else:
-        epochs = 6
+        epochs = 200
         lr = 0.005
         batch = 64
 
