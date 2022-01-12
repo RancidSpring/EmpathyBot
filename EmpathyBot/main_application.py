@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import cv2
 import torch
-from EmpathyBot.model import DeepEmotionRecognitionModel
+from model import DeepEmotionRecognitionModel
 import torch.nn.functional as F
 from torchvision import transforms
 from pepper.robot import Pepper
